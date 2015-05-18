@@ -3,7 +3,8 @@ import os
 
 import dj_database_url
 
-DEBUG = 'DJANGO_DEBUG' in os.environ
+#DEBUG = 'DJANGO_DEBUG' in os.environ
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 INTERNAL_IPS = ('127.0.0.1',)
 
@@ -71,12 +72,12 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'rdiodj'
 
 
-if DEBUG:
-    STATIC_URL = '/static/'
-else:
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+#if DEBUG:
+STATIC_URL = '/static/'
+#else:
+#    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#    STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
